@@ -1,0 +1,19 @@
+- name: Install virtualization packages (this may take a while)
+  package:
+    name: "{{ item }}"
+    update_cache: yes
+    install_recommends: yes
+  with_items: 
+    - "{{ deb_pkgs }}"
+
+- name: Enable libvirt daemon
+  service:
+    name: libvirtd
+    enabled: yes
+    state: started
+
+- name: Add user to libvirt group
+  user:
+    name: "{{ user }}"
+    groups: libvirt
+    append: yes

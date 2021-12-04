@@ -1,0 +1,9 @@
+deb_pkgs:
+  - qemu
+  - qemu-kvm
+  - libvirt-clients
+  - libvirt-daemon-system
+  - bridge-utils
+  - virtinst
+  - xorriso
+  - syslinux
