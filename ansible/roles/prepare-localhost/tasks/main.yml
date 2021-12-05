@@ -1,10 +1,11 @@
-- name: Install virtualization packages (this may take a while)
+- name: Install required packages (this may take a while)
   package:
     name: "{{ item }}"
     update_cache: yes
     install_recommends: yes
   with_items: 
-    - "{{ deb_pkgs }}"
+    - "{{ virtualization_packages }}"
+    - "{{ iso_packages }}"
 
 - name: Enable libvirt daemon
   service:

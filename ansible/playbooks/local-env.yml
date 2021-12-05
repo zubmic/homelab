@@ -1,4 +1,5 @@
 - name: Create virtual machine for local development
-  # become: yes
+  hosts: all
+  become: yes
   roles:
     - prepare-localhost
