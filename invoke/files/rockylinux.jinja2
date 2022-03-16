@@ -16,7 +16,7 @@ keyboard --xlayouts='us'
 lang en_US.UTF-8
 
 # Network information
-network  --bootproto=dhcp --hostname=rockylinux --ipv6=auto --activate
+network  --bootproto=dhcp --hostname={{ hostname }} --ipv6=auto --activate
 
 # Use CDROM installation media
 cdrom
