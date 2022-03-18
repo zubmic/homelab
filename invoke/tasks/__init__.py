@@ -1,5 +1,6 @@
 from invoke import Collection, task, executor
-import packages, iso, vm, json, config
+# import tasks as local modules
+from . import packages, iso, vm, config
 
 namespace = Collection()
 namespace.add_collection(packages)

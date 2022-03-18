@@ -1,7 +1,6 @@
 from invoke import Collection, task
 from jinja2 import Template
 from os.path import exists
-from shutil import copyfile
 
 @task
 def get(context, config):
