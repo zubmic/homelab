@@ -6,7 +6,7 @@ namespace = Collection()
 
 @task
 def get(context):
-    url = context['iso']
+    url = context['iso_url']
     # Extract file name from url
     file_name = basename(url)
 

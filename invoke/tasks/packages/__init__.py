@@ -1,23 +1,11 @@
 from invoke import Collection, task
 
-@task
-def update(context, config):
-    return context.run('apt update', hide=config['hide_output'])
+namespace = Collection()
 
 @task
-def install(context, config):
-    tools = [
-        'qemu', 
-        'qemu-kvm', 
-        'libvirt-clients', 
-        'libvirt-daemon-system', 
-        'bridge-utils',
-        'virtinst',
-        'wget'
-    ]
-    command = "apt install -y {}".format(' '.join(tools))
-    return context.run(command, hide=config['hide_output'])
+def install(context):
+    # Convert yaml list to string
+    packages_list = ' '.join(context['packages'])
+    return context.run(f"sudo apt update && sudo apt install -y {packages_list}")
 
-packages = Collection('packages')
-packages.add_task(update)
-packages.add_task(install)
+namespace.add_task(install)

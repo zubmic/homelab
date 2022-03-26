@@ -1,8 +1,18 @@
 ---
 # Invoke configuration
-hide: True
+run:
+  hide: True
 # Tasks specific variables
 file_dir: files/
 libvirt_dir: /var/lib/libvirt/images/
 libvirt_user: libvirt-qemu
 iso_url: https://download.rockylinux.org/pub/rocky/8/isos/x86_64/Rocky-8.5-x86_64-minimal.iso
+packages:
+  - bridge-utils
+  - libvirt-clients
+  - libvirt-daemon-system
+  - qemu
+  - qemu-kvm
+  - rsync
+  - virtinst
+  - wget
