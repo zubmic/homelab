@@ -1,11 +1,12 @@
 from invoke import Collection, task, executor
 # import tasks as local modules
-from . import packages, iso, vm
+from . import packages, iso, vm, config
 
 namespace = Collection()
 namespace.add_collection(packages)
 namespace.add_collection(iso)
 namespace.add_collection(vm)
+namespace.add_collection(config)
 
 @task
 def install(c):

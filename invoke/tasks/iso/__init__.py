@@ -3,7 +3,7 @@ Set of tasks related to iso file
 """
 from os.path import exists
 from invoke import Collection, task, Result
-import helpers
+from helpers import filename_from_url
 
 namespace = Collection()
 
@@ -12,7 +12,7 @@ def get(context):
     """
     Downloads a file from url if not already present.
     """
-    file_path = context['file_dir'] + helpers.iso_name_from_url(context['iso_url'])
+    file_path = context['file_dir'] + filename_from_url(context['iso_url']) + '.iso'
 
     if not exists(file_path):
         return context.run(f"wget {context['iso_url']} -O {file_path}")
