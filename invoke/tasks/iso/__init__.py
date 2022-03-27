@@ -25,8 +25,12 @@ def copy(context):
     Copies the files to libvirt directory via rsync.
     It allows to avoid issues with permissions later on.
     """
-    rsync_args = f"--chown={context['libvirt_user']} {context['file_dir']} {context['libvirt_dir']}"
-    return context.run("sudo rsync -rog " + rsync_args)
+    rsync_command = f"""sudo rsync -rog \
+        --chown={context['libvirt']['user']}:{context['libvirt']['user']} \
+        {context['file_dir']} \
+        {context['libvirt']['dir']}
+    """
+    return context.run(rsync_command)
 
 namespace.add_task(get)
 namespace.add_task(copy)
