@@ -6,8 +6,15 @@ run:
 config:
   hostname: homelab
 file_dir: files/
-libvirt_dir: /var/lib/libvirt/images/
-libvirt_user: libvirt-qemu
+libvirt:
+  dir: /var/lib/libvirt/images/
+  user: libvirt-qemu
+  vm:
+    disk_size: 20
+    network: default
+    os_variant: generic
+    ram: 4098
+    vcpus: 2
 iso_url: https://download.rockylinux.org/pub/rocky/8/isos/x86_64/Rocky-8.5-x86_64-minimal.iso
 packages:
   - bridge-utils
