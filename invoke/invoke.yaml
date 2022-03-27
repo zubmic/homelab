@@ -3,6 +3,8 @@
 run:
   hide: True
 # Tasks specific variables
+config:
+  hostname: homelab
 file_dir: files/
 libvirt_dir: /var/lib/libvirt/images/
 libvirt_user: libvirt-qemu
