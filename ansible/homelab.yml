@@ -1,0 +1,6 @@
+---
+- name: Configure homelab
+  hosts: homelab
+  remote_user: root
+  roles:
+    - k3s

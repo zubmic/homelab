@@ -2,3 +2,5 @@
 *.iso
 *.ks
 __pycache__
+ansible/*.retry
+ansible/*.ini

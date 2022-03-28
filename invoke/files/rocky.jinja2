@@ -8,6 +8,7 @@ repo --name="Minimal" --baseurl=file:///run/install/sources/mount-0000-cdrom/Min
 @^minimal-environment
 @standard
 kexec-tools
+python39
 %end
 
 # Keyboard layouts
@@ -43,6 +44,10 @@ user --groups=wheel --name=zubmic --password=$6$i/mc69XM1HpsQPjq$/SfnmPyNHFtsU6g
 pwpolicy root --minlen=6 --minquality=1 --notstrict --nochanges --notempty
 pwpolicy user --minlen=6 --minquality=1 --notstrict --nochanges --emptyok
 pwpolicy luks --minlen=6 --minquality=1 --notstrict --nochanges --notempty
+%end
+
+%post
+yum update -y
 %end
 
 # Shutdown when the install is finished
