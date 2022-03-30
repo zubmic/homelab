@@ -8,7 +8,6 @@ repo --name="Minimal" --baseurl=file:///run/install/sources/mount-0000-cdrom/Min
 @^minimal-environment
 @standard
 kexec-tools
-python39
 %end
 
 # Keyboard layouts
@@ -47,7 +46,16 @@ pwpolicy luks --minlen=6 --minquality=1 --notstrict --nochanges --notempty
 %end
 
 %post
+exec < /dev/tty3 > /dev/tty3
+chvt 3
+echo
+echo "################################"
+echo "# Running Post Configuration   #"
+echo "################################"
 yum update -y
+yum install -y python39
+alternatives --set python /usr/bin/python3
+chvt 1
 %end
 
 # Shutdown when the install is finished
