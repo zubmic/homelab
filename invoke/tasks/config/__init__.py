@@ -15,6 +15,6 @@ def prepare(context):
     template_name = filename_from_url(context['iso_url']) + '.jinja2'
     config_name = filename_from_url(context['iso_url']) + '.ks'
 
-    with open(context['file_dir'] + template_name, encodig='utf-8', mode='r') as file:
+    with open(context['file_dir'] + template_name, mode='r') as file:
         config = Template(file.read()).stream(context['config'])
         config.dump(context['file_dir'] + config_name)
