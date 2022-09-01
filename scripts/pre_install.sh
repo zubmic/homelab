@@ -1,8 +1,8 @@
 #!/bin/bash
-# Install required software
+# Prepare the host system for VM installation
 
 distro=$(grep -e ^ID= /etc/*-release | tr -d "ID=")
-packages="ansible bridge-utils qemu qemu-kvm wget rsync"
+packages="ansible bridge-utils qemu qemu-kvm wget"
 
 case $distro in
     debian)
