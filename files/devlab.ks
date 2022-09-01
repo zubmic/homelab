@@ -54,9 +54,10 @@ echo "################################"
 echo "# Running Post Configuration   #"
 echo "################################"
 echo
-#yum update -y
-yum install -y python39
+dnf install -y python39 epel-release
 alternatives --set python /usr/bin/python3
+dnf config-manager --set-enabled crb
+dnf install -y fuse-sshfs
 chvt 1
 %end
 
