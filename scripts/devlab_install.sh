@@ -17,6 +17,7 @@ fi
 # Install VM if the domain doesn't already exist
 if [ -z "$domain" ]; then
     cp ../files/"$name.ks" $config_path
+
     virt-install \
         --accelerate \
         --check-cpu \
@@ -33,10 +34,12 @@ if [ -z "$domain" ]; then
         --ram 4096 \
         --vcpus=2 \
         --wait -1
-fi
 
-if [ ! -z "$domain" ]; then
-    virsh start $name
+    # Start the VM
+    virsh start $name && sleep 5
+
+    # Get the IP address
     address=$(virsh domifaddr devlab | awk 'FNR == 3 { sub("/.*", ""); print $4 }')
+
     echo "The address is: $address"
 fi
