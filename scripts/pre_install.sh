@@ -2,7 +2,7 @@
 # Install required software
 
 distro=$(grep -e ^ID= /etc/*-release | tr -d "ID=")
-packages="bridge-utils qemu qemu-kvm wget rsync"
+packages="ansible bridge-utils qemu qemu-kvm wget rsync"
 
 case $distro in
     debian)
