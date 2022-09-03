@@ -10,7 +10,7 @@ fi
 
 # Install VM if the domain doesn't already exist
 if [ -z "$domain" ]; then
-    cp ../files/"$guest_vm_name.ks" $config_path
+    cp "$(dirname "$0")/files/$guest_vm_name.ks" $config_path
 
     virt-install \
         --accelerate \
