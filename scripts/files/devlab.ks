@@ -54,10 +54,10 @@ echo "################################"
 echo "# Running Post Configuration   #"
 echo "################################"
 echo
-dnf install -y python39 epel-release
+dnf install -y python39 qemu-guest-agent
 alternatives --set python /usr/bin/python3
-dnf config-manager --set-enabled crb
-dnf install -y fuse-sshfs
+systemctl enable --now qemu-guest-agent
+sed -i 's/SELINUX=enforcing/SELINUX=disabled/' /etc/selinux/config
 chvt 1
 %end
 
